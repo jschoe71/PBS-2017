@@ -15,12 +15,12 @@
 %\maketitle
 \begin{abstract}
 % 편광기반 BB84 프로토콜 기반의 QKD에 사용하기 위해 실리카 PLC 기술로 집적형 편광 분할/결합기 모듈을 개발했다.
-We have developed an integrated polarization beam splitter (PBS) module with silica planar lightwave circuit technology for use in BB84 quantum key distribution.
+We have developed an integrated polarization beam splitter (PBS) module with silica planar lightwave circuit technology for use in BB84 quantum key distribution (QKD).
 % 4개의 편광에 대해 동작시키기 위해 반파장판을 삽입하였으며, 모듈의 편광소광비와 삽입손실은 각각 ___dB와 ___dB였다.
 The PBS module was designed to operate on four linear polarizations with the inserted half-wave plate film, showing the minimum polarization extinction ratio of 17.6dB.
 %The excess optical loss and The minimum polarization extinction ratio were \underline{4.59}dB and \underline{17.6dB}, respectively.
 % 무선양자암호 테스트베드에 장착하였을 때 QBER과 sifted key rate은 까각 ___%와 ___kbps롤 보였다.
-When the module was loaded on the free-space BB84 test-bed, quantum bit error rate and sifted key rate  were 2.81\% and 415 kbps, respectively.
+When the module was loaded on the free-space BB84 QKD test-bed, quantum bit error rate and sifted key rate  were 2.81\% and 415 kbps at clock rate of 100 MHz, respectively.
 \end{abstract}
 
 \ocis{(260.5430) Polarization; (230.5440)   Polarization-selective devices; (060.5565) Quantum Communications; (230.7390) Waveguides, planar }
@@ -38,22 +38,22 @@ When the module was loaded on the free-space BB84 test-bed, quantum bit error ra
 
 \section{Introduction}
 %최근에 통신 보안에 대한 이슈가 부각되면서 양자암호통신에 대해 많은 연구가 이루어지고 있다.
-Many researches have been conducted for quantum communication as security became one of the main issues in communication technology \cite{Bennett:1984is, Ekert:1991kl}.
+Many researches have been conducted for quantum communication as security solution is one of the main issues in communication technology \cite{Bennett:1984is, Ekert:1991kl}.
 %양자 암호 통신을 위한 여러 프로토콜들 중 최초로 제안된 BB84는 가장 많이 연구되어 오고 있다.
 Since Bennett and Brassard proposed BB84 protocol for secure key distribution, it has widely been chosen for quantum key distribution (QKD) \cite{Bennett:1984is}.
 % BB84를 구현하기 위해서 직교하지 않는 두 베이시스 셋을 구성하며 그 수단으로 주로 편광 또는 위상을 사용한다.
-Implementation of BB84 requires two sets of non-orthogonal bases %that can be constructed with either polarization or phase.
+Implementation of BB84 requires two sets of non-orthogonal basis %that can be constructed with either polarization or phase.
 % 광신호의 전달 매체는 환경에 따라서 자유공간 또는 광섬유가 사용된다.
 % 자유공간 BB84 통신에서는 편광이 잘 유지가 되므로 편광으로 신호 인코딩이 가능하다.
 that are usually constructed with polarization of single photon for free-space communication.
 % 광섬유를 사용할 경우 광섬유가 받는 스트레인에 의해 발생하는 복굴절이 편광의 변화를 유발하므로 원래의 편광을 유지하는 것이 어려우므로 흔히 빛의 위상으로 신호를 인코딩한다.
 % 자유 공간에서는 상대적으로 편광의 변화가 적으므로 편광 인코딩의 BB84 프로토콜의 사용이 용이하다.
 % 편광 기반의 BB84는 HV 또는 DA 편광으로 이루어진 베이시스 중 하나를 선택하고 선택한 베이시스의 두 편광 중 하나를 선택함으로써 데이터를 인코딩하여 보내는 방식으로 암호키를 전달한다.
-The polarization-based BB84 encodes the data by choosing a basis of the two bases of horizontal(H)-vertical(V) or diagonal(D)-antidiagonal(A) polarization, and choosing one polarization from the basis to generate an encryption key.
+The polarization-based BB84 protocol encodes the data by choosing a basis of the two bases of horizontal(H)/vertical(V) or diagonal(D)/antidiagonal(A) polarization, and transmitting a single photon of a polarization from the chosen basis to generate an encryption key.
 %HVDA의 네 편광 중 하나를 선택해서 보내고 수신자는 편광을 가반으로 한 많은 연구가 수행되어 왔다.
 %Polarization-based BB84 generally uses single photons with horizontal (H), vertical (V), diagonal (D), and antidiagonal (A) polarization
 
-Thus an optical part for splitting or combining polarizations is essential for a polarization-based BB84 QKD, and is generally composed of two bulk polarization beam splitters (PBS), one beam splitter, and one half-wave plate (HWP) \cite{Ko:2017cs}.
+Thus an optical part for splitting or combining the four states of polarization is essential for a polarization-based BB84 QKD, and is generally composed of two bulk polarization beam splitters (PBS), one beam splitter, and one half-wave plate (HWP) \cite{Ko:2017cs}.
 %편광을 합치고 보내는 광학계는 일반적으로 벌크 광학 부품을 정렬하여 사용하는데, 양자비트에러율은 광정렬의 정확도에 크게 의존하므로 시간이 지남에 따라 발생할 수 있는 약간의 정렬 틀어짐도 시스템의 안정성을 떨어뜨리게 된다.
 Although the bulk-optic components show high performances in polarization extinction ratio (PER), optical loss, and so on, the QKD system will work only when the components are installed with high alignment accuracy upon which its overall performance is strongly dependent.
 %In addition, some alignment drift over time can degrade system stability even though initial alignment status results in sufficiently low QBER.
@@ -72,9 +72,9 @@ In this study, PBS module using  planar lightwave circuit (PLC) chip was fabrica
 \subsection{PBS chip}
 
 % PBS 소자는 실리콘 기판 위에 실리카 평판형 광도파로를 이용하여 제작하였다.
-PBS developed in this work is based on Mach-Zehnder interferometer (MZI) fabricated with silica PLC technology \cite{Kim:2012ej, Hashizume:2015ta}.
+PBS developed in this work is based on Mach-Zehnder interferometer (MZI) structure fabricated with silica PLC technology \cite{Kim:2012ej, Hashizume:2015ta}.
 % 사용하는 파장 대역이 780 nm이므로 여기에서 단일 모드가 되며 해당 파장에서의 광섬유와 높은 광결합 효율을 가지도록 기본 도파로를 설계하였다.
-The waveguide structure was chosen to support single mode and maximum mode matching with single mode fiber (SMF) at the working wavelength of 780 nm, where Si single photon detector works and atmospheric absorption is low.
+The waveguide structure was chosen to support single mode and maximum mode matching with single mode fiber (SMF) at the operating wavelength of 780 nm, where Si single photon detector has high detection efficiencty and atmospheric absorption is low.
 % 코어와 클래드의 굴절률은 780 nm의 파장에서 각각 ___와 ___였으며 도파로 코어의 크기는 가로와 세로가 모두 4.3 um이다.
 Refractive indices of core and clad material were 1.4588 and 1.4537 at 780 nm, respectively, and the dimension of waveguide core was designed as 4.3 $\mu$m $\times$ 4.3 $\mu$m.
 % 마흐 젠더 간섭계 구조에서 한 쪽 arm에서 수직과 수평의 두 편광간에 180도의 retardation이 나타나도록 하고 다른 쪽 arm과는 두 편광이 모두 90도의 위상차가 존재하도록 하면 두 편광을 분리할 수 있다.
