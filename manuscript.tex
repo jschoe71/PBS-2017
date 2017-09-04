@@ -59,11 +59,13 @@ Although the bulk-optic components show high performances in polarization extinc
 %In addition, some alignment drift over time can degrade system stability even though initial alignment status results in sufficiently low QBER.
 %본 연구에서는 자유공간을 통한 편광 기반의 BB84 프로토콜 양자암호통신의 구현을 위해 광도파로 소자로 구현된 편광분할기 모듈을 개발하였고 무선 양자암호통신 테스트베드에 장착하여 키 분배 실험을 수행하였다.
 
-The need for alignment of discrete optic components can be removed if they are replaced by integrated elements on a chip
+The need for alignment of discrete optic components can be removed if they are replaced by  a passive photonic chip with integrated elements
 %If the optical components are replaced by integrated elements on a chip
 fabricated through semiconductor processes such as photo-lithography and dry etching.
+The chip-scale integration of the optical part of BB84 system provides miniaturization necessary to diversify application area such as QKD for hand-held devices, and makes it possible to achieve mass production with low cost.
+In view of performace, the integration improves stability of QKD system because optical transmission characteristics of a passive photonic chip is quite stable.
 %Integration of all the components on a chip removes the alignment processes and prevents the drift of alignment over time that can degrade system stability even though initial alignment status results in sufficiently low QBER.
-The chip-scale integration provides performance stability improvement as well as miniaturization of optical part in BB84 system, and can readily be implemented using waveguide-based photonic circuit technology.
+%The chip-scale integration provides performance stability improvement as well as miniaturization of optical part in BB84 system, and can readily be implemented using waveguide-based photonic circuit technology.
 PBS chips using waveguide are widely used in optical receivers for polarization-multiplexed modulation formats such as dual polarization quadrature phase shift keying (DP-QPSK), dual polarization 16 quadrature amplitude modulation (DP-16QAM), etc  \cite{Lee:2016bg,PoDong:2014kj}.
 However, there has been no report on integrated PBS chip that can deal with four polarizations used in BB84 QKD.
 In this study, integrated PBS module using  silica-based planar lightwave circuit (PLC) chip was fabricated for the first time for BB84 protocol, and its performance was assessed it in a free-space QKD test-bed.
@@ -72,22 +74,30 @@ In this study, integrated PBS module using  silica-based planar lightwave circui
 \subsection{PBS chip}
 
 % PBS 소자는 실리콘 기판 위에 실리카 평판형 광도파로를 이용하여 제작하였다.
-PBS developed in this work is based on Mach-Zehnder interferometer (MZI) structure fabricated with silica PLC technology \cite{Kim:2012ej, Hashizume:2015ta}.
+PBS developed in this work is based on Mach-Zehnder interferometer (MZI) structure fabricated with silica PLC technology, as is shown in Fig. \ref{fig:layout}(a)\cite{Kim:2012ej, Hashizume:2015ta}.
 % 사용하는 파장 대역이 780 nm이므로 여기에서 단일 모드가 되며 해당 파장에서의 광섬유와 높은 광결합 효율을 가지도록 기본 도파로를 설계하였다.
-The waveguide structure was chosen to support single mode and maximum mode matching with single mode fiber (SMF) at the operating wavelength of 780 nm, where Si single photon detector has high detection efficiency and atmospheric absorption is low.
+The waveguide structure was chosen to support single mode and maximum mode matching with single mode fiber (SMF) at the operating wavelength of 780 nm, where Si-based single photon detector has high detection efficiency and atmospheric absorption is low.
 % 코어와 클래드의 굴절률은 780 nm의 파장에서 각각 ___와 ___였으며 도파로 코어의 크기는 가로와 세로가 모두 4.3 um이다.
-Refractive indices of core and clad material were 1.4588 and 1.4537 at 780 nm, respectively, and the dimension of waveguide core was designed as 4.3 $\mu$m $\times$ 4.3 $\mu$m.
+Refractive indices of core and clad material were 1.4588 and 1.4537 at 780 nm, respectively, and the dimension of the waveguide core was designed as 4.3 $\mu$m $\times$ 4.3 $\mu$m.
 % 마흐 젠더 간섭계 구조에서 한 쪽 arm에서 수직과 수평의 두 편광간에 180도의 retardation이 나타나도록 하고 다른 쪽 arm과는 두 편광이 모두 90도의 위상차가 존재하도록 하면 두 편광을 분리할 수 있다.
-In the MZI structure, H- and V-polarizations can be separated by providing a retardance of 180$^\circ$  between the two polarizations in one arm while both the polarizations have phase difference of 90$^\circ$  between the two arms \cite{Kim:2012ej}.
+%In the MZI structure, H- and V-polarizations can be separated by providing a retardance of 180$^\circ$  between the two polarizations in one arm while both the polarizations have phase difference of 90$^\circ$  between the two arms \cite{Kim:2012ej}.
 % retardation을 가하기 위해 한 쪽 arm의 도파로 일부를 넓게 설계하였다. 이렇게 하면 제작 공정상에서 uniaxial strain을 받게 되어 복굴절이 발생함이 알려져 있으며, 복굴절 * 길이 * 2pi / 파장 = 2m*pi+pi 가 되는 길이로 제작하면 180도의 위상차가 되게 만들 수 있다.
-A portion of the waveguide of one arm is designed to have larger width of 18.5 $\mu$m.
+
+In Fig. \ref{fig:layout}(a), the input light is split into two paths by a 3 dB splitter.
+At the outputs of the splitter are connected in parallel two identical MZIs with 2$\times$2 multimode interference (MMI) coupler.
+%Each birefringent MZI in this device splits the input light into H- and V-polarized light.
+A portion of the waveguide of upper arm in each MZI was designed to have larger width of 18.5 $\mu$m.
 A wide waveguide in silica PLC is known to have birefringence  due to uniaxial strain generated in the fabrication process \cite{Okuno:1994fm}.
+%The birefringence causes H- and V-polarized lights hav
+The birefringence causes relative phase differences between H- and V-polarized lights when light reaches the  input of the MMI through the arms.
 When the device is designed so that birefringence $\Delta n$ and length $L$ of the wide waveguide satisfy the condition $2\pi\Delta n/\lambda  = (2m+1) \pi$ with integer $m$, the phase difference between H- and V-polarization can be made to be 180$^\circ$.
 % The required retardance was provided by designing part of one arm in MZI widely.
 % Wide waveguide in silica PLC was known to suffer uniaxial strain and therefore birefringence occurs.
 % As retardance is
 %다른 한 쪽 arm의 길이도 적절히 설계하면 위의 모든 위상 조건을 만족하도록 하는 것이 가능하다.
-If the length of the other arm is properly designed, it is possible to satisfy the aforementioned phase relationship.
+If above condition is satisfied and the lower arm is made to provide a phase difference of 90$^\circ$ between the arms for the two polarizations, polarization separation is achieved according to the operation of MMI depicted in Fig. \ref{fig:layout}(b).
+%If the lower arm of the MZI provides phase difference of 90$^\circ$ between the two arms for both the polarizations, is designed so that phase difference of 90$^\circ$ occurs between the two input ports of the MMI for both the polarizations, the polarization of each polarization will only come out to different output ports of the MMI due to the nature of the MMI.
+%If the length of the other arm is properly designed, it is possible to satisfy the aforementioned phase relationship.
 % % TE and TM polarization can be split if they have phase difference of $\pi$ in one arm of MZI and $\pi/2$ between the two arms, as described in    .
 % Part of an arm of MZI was designed to have wide width to impose retardance.
 % Wide waveguide is known to result in uniaxial strain and thus birefringence occurs.
@@ -105,13 +115,18 @@ But actually it changes sensitively with ambient temperature around the interfer
 %따라서 본 연구에서는 간섭계의 arm에 히터를 장착하여 전류로 위상을 조절할 수 있도록 했다.
 Therefore, micro-heaters were deposited on the arms of MZI to actively control the phase making use of the themo-optic property of silica.
 
+The input light may be in D/A-polarization basis as well as H/V-polarization basis, but D- and A-polarized light can not be properly separated in PLC PBS composed of rectangular waveguide.
+% 따라서 본 연구에서는 두 MZI중 하나의 입력부에 slit을 형성하고 광축이 22.5도 기울어진 반파장 필름을 삽입하여 DA에서 HV로 편광을 바꾼 후 분리하는 방법을 취했다.
+In this study, a HWP film with its optic axis tilted by 22.5$^\circ$ was inserted at the input of the lower PBS to split D/A polarization.
+Although the output of the lower MZI is annotated as D/A in Fig. \ref{fig:layout}, actual polarization of the output light is H/V.
+
 %다음 그림은 소자의 설계 도면과 제작이 완료된 칩바의 사진이다.
 
-Figure \ref{fig:layout} shows the layout of the device.
+%Figure \ref{fig:layout} shows the layout of the device.
 % and photograph taken after fabrication process is completed.
-The input light is split into two paths by the 3 dB splitter.
-At the outputs of a 3 dB splitter are connected in parallel the two identical birefringent MZIs with 2$\times$2 multimode interference device at their outputs.
-Each birefringent MZI in this device splits the input light into H- and V-polarized light.
+%The input light is split into two paths by the 3 dB splitter.
+%At the outputs of a 3 dB splitter are connected in parallel the two identical birefringent MZIs with 2$\times$2 multimode interference device at their outputs.
+%Each birefringent MZI in this device splits the input light into H- and V-polarized light.
 %The input light is split into two paths by the 3 dB splitter and separated into H-and V-polarized light in each PBS.
 %The PBS splits H and V while input polarization can be D or A, thus a half-wave plate is to be inserted in front of the lower PBS.
 %소자의 길이는 42 mm 이고 폭은 1.2 mm 이다.
@@ -119,16 +134,13 @@ Each birefringent MZI in this device splits the input light into H- and V-polari
 %Figure \ref{fig:device} shows layout of the device developed in this study.
 \begin{figure}
   \centering
-  \includegraphics[width=8cm]{./layout}
-  \caption{(a) Layout of the PBS device for H/V/D/A-polarizations. 1$\times$2 splitter splits the input light into two PBSes that separate H- and V-polarization and output them to the corresponding waveguides. Lower PBS has HWP at its input so that D- or A-polarized light is converted to H- or V-polarization. (b) Schematic description of the operation of 2$\times$2 MMI. Under single port input, the two outputs show same power with relative phase difference of 90$^\circ$ (upper). If there is phase difference of 90$^\circ$ between two inputs, one output is extinguished (lower).}
+  \includegraphics[height=6.3cm]{./layout}
+  \caption{(a) Layout of the PBS device for H/V/D/A-polarizations. 1$\times$2 splitter splits the input light into two PBSes that separate H- and V-polarization and output them to the corresponding waveguides. Lower PBS has HWP at its input so that D- or A-polarized light is converted to H- or V-polarization. (b) Schematic description of the operation of 2$\times$2 MMI. Under single port input, the two outputs show electric field with same amplitude and relative phase difference of 90$^\circ$ (upper). If there is phase difference of 90$^\circ$ between two input electric fields, one output is extinguished (lower).}
   \label{fig:layout}
 \end{figure}
 % 입력된 빛은 1X2 splitter에서 갈라지고 각각 HV에 대한 PBS에서 편광별로 분리되어 각각의 출력으로 나가도록 되어 있다.
 % 입력되는 빛은 HV 뿐만 아니라 DA 베이시스인 경우도 있으나 사각도파로로 구성된 PLC PBS에서 D와 A를 제대로 분리할 수 없다.
-The input light may be in D/A-polarization basis as well as H/V-polarization basis, but D- and A-polarized light can not be properly separated in PLC PBS composed of rectangular waveguide.
-% 따라서 본 연구에서는 두 MZI중 하나의 입력부에 slit을 형성하고 광축이 22.5도 기울어진 반파장 필름을 삽입하여 DA에서 HV로 편광을 바꾼 후 분리하는 방법을 취했다.
-Therefore, in this study, a HWP film with its optic axis tilted by 22.5$^\circ$ was inserted at the input of the lower PBS to split D/A polarization.
-Although the output of the lower MZI is annotated as D/A in Fig. \ref{fig:layout}, actual polarization of the output light is H/V.
+
 %Therefore, in this study, a HWP film was inserted in a slit formed a slit is formed on one input of two MZIs, and a HWP film with optic axis tilted by 22.5$^\circ$ is inserted to change polarizations from DA to HV and then separated.
 % 이것은 벌크 옵틱스로 꾸민 BB84 광학계에서 사용하는 방법과 동일하다.
 %This is the same method used in the general BB84 system with bulk optics.
@@ -236,12 +248,12 @@ PER was obtained by measuring the intensity from the output waveguides using a b
 The PBS chip showed different PER characteristics depending on the length of the birefringent waveguide (BRW) as shown in Fig. \ref{fig:BRW-PER}.
 \begin{figure}
   \centering
-  \includegraphics[width=7cm]{./BRWPER}
+  \includegraphics[width=7cm]{./BRWPER.pdf}
   \caption{Measured result of PER with birefringent waveguide length. Maximum PER of 17.1 dB was obtained when the BRW length is 2624 $\mu$m.}
   \label{fig:BRW-PER}
 \end{figure}
 % 최대의 편광소광비가 얻어지는 조건의 복굴절 도파로 길이는 약 ___ um 정도로, 이 길이에서 H와 V 간에 180도 위상차가 발생한다.
-Maximum PER is 17.1 dB  if the length of BRW is 2624 $\mu$m.
+Maximum PER was measured as 17.1 dB  when the length of BRW was 2624 $\mu$m.
  %where H- and V- polarization show phase difference of 180$^\circ$.
 From this result, the birefringence of the BRW is estimated as 1.5$\times 10^{-4}$ that is similar to that reported in Ref. \cite{Hashizume:2015ta}.
 
@@ -289,7 +301,7 @@ The offset angle prevents the 45$^\circ$ polarized incident light from being con
 % PER의 열화는 최종적으로는 QKD 시스템의 QBER을 나쁘게 해서 key rate를 떨어뜨리는 효과를 불러온다.
 %The deterioration of the PER eventually leads to increase of quantum bit error rate (QBER) of the QKD system, thereby lowers the key rate.
 % 그러나 그림에서 볼 수 있는 것처럼 0도에서 2도 정도까지는 PER의 열화가 그리 크지 않아서 약간의 각도의 부정확성이 전체적인 performance에는 크게 영향을 주지는 않을 것임을 알 수 있다.
-However, Fig. \ref{fig:angle_offset} suggests that the drop of PER is not so large within  offset angle of 2$^\circ$, and  a slight inaccuracy in the angle  will not significantly affect the overall performance.
+However, Fig. \ref{fig:angle_offset} suggests that the drop of PER is not so large within  offset angle of 2$^\circ$, and  a slight angle inaccuracy does not significantly affect the overall performance.
 In our study, the film cutting or treatment could be accomplished without any specialized equipment within that precision.
 %to keep the direction of the optic axis of the film within that precision was not difficult without any specialized equipment for film cutting or treatment.
 
@@ -301,8 +313,8 @@ The polarization-splitting characteristics of the module were evaluated by recei
 At the chip temperature of 21$^\circ$C and current of the micro-heater of 29 mA, the module shows PER of 22.4 dB in separating H/V polarizations, and 17.6 dB for D/A polarizations.
 This is better than the result obtained from PBS chip measurement.
 It is owing to both temperature optimization and better fiber-chip alignment in the module.
-In chip measurement, it is difficult to align the fiber with right angle to the facet of the chip.
-Therefore stray light is apt to occur and part of the can be coupled to unwanted output waveguide, worsening PER than the MZI can provide.
+In chip measurement, it is difficult to align fiber with right angle to the facet of the chip.
+Therefore stray light transmitted through outside of the waveguide can be coupled to unwanted output path and decrease PER of PBS.
 On the other hand, the V-groove block for fiber-pigtail in module fabrication helps normal incidence of light and thus minimizes stray light.
 
 While this polarization-splitting capability is used before single-photon detectors by receiver (Bob), the module can also be used as PBC for combining four polarization states by Alice.
@@ -310,13 +322,13 @@ Since common SMF is used as the output port in the module, there is no need to p
 %As the module emits light through one SMF, there is no need to precisely align the four outputs of LDs so that they travel along the identical path in free space.
 If four PMF-pigtailed LDs are connected to the PMFs of the PBS module, output polarizations of the LDs are converted to H-V-H-V  by the PMFs of the module, and converted to  H-V-D-A  by the HWP film in the PBS chip.
 
-The performance of the module as a PBC was assessed by connecting the SMF of the module with a polarimeter via a polarization controller (PC) that is configured to compensates the polarization distortion occurring in the SMF, as shown in Fig. \ref{fig:meas_setup}(b).
-If the module is not properly fabricated, no configuration of the PC can restore the four LDs' output to their original states simultaneously.
-The four states of the polarization measured is shown in Fig. \ref{fig:meas_setup}(c).
+The performance of the module as a PBC was assessed by connecting the SMF of the module with a polarimeter via a polarization controller (PC) that is configured to compensate the polarization distortion occurring in the SMF, as shown in Fig. \ref{fig:meas_setup}(b).
+If the module is not properly fabricated, no configuration of the PC can recover the four LDs' output to their original states simultaneously.
+The four states of the polarization measured are shown in Fig. \ref{fig:meas_setup}(c).
 \begin{figure}
   \centering
   \includegraphics[height=7.5cm]{meas_setup}
-  \caption{(a) Setup for measuring PER of the PBS module using Alice part of a free-space QKD test-bed. PBS module splits the input light according to its polarization, and power ratio between the outputs are obtained by measured optical powers.  (b) Setup for characterizing the module as a PBC. Output from the four LDs are combined in the module and emitted through the SMF. PC is configured to compensates all the polarization. The final polarization state  is observed by the polarimeter. (c) Measured polarization states of the PBS module output in (b) represented in Poincar\'{e} sphere.}
+  \caption{(a) Setup for measuring PER of the PBS module using Alice part of a free-space QKD test-bed. PBS module splits the input light according to its polarization, and power ratio between the outputs are obtained by measured optical powers.  (b) Setup for characterizing the module as a PBC. Output from the four LDs are combined in the module and emitted through the SMF. PC is configured to compensates all the polarization. The final polarization state  is observed by the polarimeter. (c) Measured polarization states of the module output when used as a PBC.}
   \label{fig:meas_setup}
 \end{figure}
 Each output state is quite close to the four polarization states of H/V/D/A.
@@ -335,12 +347,12 @@ Chipping that might occur on the edge of the diced groove surface can cause scat
 % 그것들 중 홈에서의 손실이 ___ dB로 추정되며 이것은 더 좁은 홈과 거기에 맞는 반파장판을 사용하면 줄일 수 있다.
 % 30um로 홈을 줄이면 1.5 dB 정도의 손실을 줄일 수 있을 것으로 예상된다.
 It is expected from a beam propagation method simulation that the loss will be decreased by about 1.5 dB if the width of the groove is reduced to 30 $\mu$m by developing thinner half-wave plate film.
-The loss would be further reduced if groove-dicing process is optimized to suppress chipping.
+The loss can be further reduced if groove-dicing process is optimized to suppress chipping.
 
 % 그러나 추가의 실험을 통해서
 \subsection{QKD Test}
 %B84 테스트베드의 Bob 파트에 장착하여 key 전송 실험을 수행했다.
-The free-space BB84 test was performed with the fabricated module replacing the four polarization splitting block on the Bob part of the test-bed, as shown in Fig. \ref{fig:testbed}.
+The free-space BB84 test was performed with the fabricated module replacing the four polarization splitting block on the Bob's part of the test-bed, as shown in Fig. \ref{fig:testbed}.
 \begin{figure}
   \centering
   \includegraphics[width=13cm]{testbed3.pdf}
@@ -349,22 +361,21 @@ The free-space BB84 test was performed with the fabricated module replacing the 
 \end{figure}
 %%% 수신부 테스트 조건 %%%
 % 100MHz로 클럭을 발생시켰고, 두 개의 난수 발생기를 이용하여 네 개의 LD 중 하나로부터 빛을 100MHz의 주파수로 발생시켰다.
-In the Alice part, two random number generators were used to choose the basis and binary data, and one of the four LDs emitted light accordingly under the clock rate of 100 MHz.
+In the Alice's part, two pseudo-random number generators were used to choose the basis and binary data, and one of the four LDs emitted light accordingly at the clock rate of 100 MHz.
 % LD로부터의 빛은 PBS, BS를 통해 동일한 경로가 되도록 했고, ND 필터로 펄스당 0.1개의 광자 레벨이 되도록 감쇄시켰다.
 Collimated light from the four LDs transmitted  through the bulk optic PBS, BS, and HWP, and was finally attenuated to mean photon number of 0.1 per pulse by a neutral density filter.
 LD signal with wavelength of 1550 nm was transmitted through dichroic mirror with quantum signal for synchronization of Alice and Bob.
 % Bob 시스템에서는 collimation lens 를 통해 들어온 빛을 광섬유에 결합시켰고, 광섬유 편광조절기를 사용하여 편광 모듈의 칩으로 들어간 빛의 편광이 원래의 편광이 되도록 조절하였다.
-In the Bob part, the light from Alice was  focused by lens and coupled to an SMF.
-The SMF and our integrated PBS module was connected via a PC that could restore the polarization of the light entering the PBS chip to the original one that Alice sent.
+In the Bob part, the light from Alice was  focused by a lens and coupled to an SMF.
+The SMF and our integrated PBS module was connected via a PC that could recover the polarization of the light entering the PBS chip to the original one that Alice sent.
 % 편광 모듈의 출력 쪽 네 개의 광섬유는 각각 단일광자 검출기에 연결하였다.
-The each PMF on the output side of the PBS module was connected to a single photon detector.
+Each PMF on the output side of the PBS module was connected to a single photon detector.
 % 테스트베드 구동 결과 overall QBER은 2.8%, sifted key rate 은 ___ kbps가 얻어졌다.
-As a result of the test-bed operation, overall QBER was 2.81\% and sifted key rate were 415 kbps, as shown in Fig. \ref{fig:QKD_result}.
+As a result of the test-bed operation, overall QBER of 2.81\% and sifted key rate of 415 kbps were achieved, as shown in Fig. \ref{fig:QKD_result}.
 \begin{figure}[ht]
   \centering
-  \subfigure[]{\includegraphics[height=5.6cm]{key_rate}}
-  \subfigure[]{\includegraphics[height=5.2cm]{QBER}}
-  \caption{Test result for the PBS module in a free-space BB84 protocol test-bed. (a) raw key rate and sifted key rate for 100 sec and (b) QBER of four channels and overall QBER for 100 sec.}
+  \includegraphics[height=5.6cm]{QKD_result}
+  \caption{Test result for the PBS module in a free-space BB84 protocol test-bed at the clock rate of 100 MHz. (a) Raw key rate and sifted key rate for 100 sec and (b) QBER of four channels and overall QBER for 100 sec.}
   \label{fig:QKD_result}
 \end{figure}
 % 편광 모듈 대신 벌크 옵틱스를 사용했을 때는 QBER과 sifted key rate은 각각 __%와 ___kbps였다.
